@@ -1,0 +1,213 @@
+Tworzenie pojedynczego obiektu: 
+
+dog = { 
+
+    name: "Szama", 
+
+    speed: 1000, 
+
+    showText: function() { 
+
+        return "Lubię walczyć ze złem"; 
+
+    } 
+
+} 
+
+ 
+
+Metody dla obiektów możemy też definiować z pominięciem słowa function 
+
+ 
+
+dog = { 
+
+    name: "Szama", 
+
+    speed: 1000, 
+
+    showText() { 
+
+        return "Lubię walczyć ze złem"; 
+
+    } 
+
+} 
+
+ 
+
+Lub pod klucze możemy też podstawić jakieś wartości to wtedy zapis nam się skraca: 
+
+ 
+
+name = "Szama"; 
+
+speed = 1000; 
+
+dog = { 
+
+    name, 
+
+    speed, 
+
+    showText() { 
+
+        return "Lubię walczyć ze złem"; 
+
+    } 
+
+} 
+
+ 
+
+tab = []; 
+
+name = "Szama"; 
+
+speed = 1000; 
+
+ 
+
+tab.push({ 
+
+    name: name, 
+
+    speed: speed 
+
+}); 
+
+ 
+
+//lub jeszcze lepiej 
+
+tab.push({name, speed}); 
+
+ 
+
+Odwoływanie się do właściwości obiektu: 
+
+Sposób pierwszy: 
+
+//poprzez kropkę po której podajemy nazwę klucza 
+
+dog.name; //"Szama" 
+
+dog.speed; //1000 
+
+dog.showText(); //"Lubię walczyć ze złem" 
+
+ 
+
+Sposób drugi: 
+
+ 
+
+//używając kwadratowych nawiasów 
+
+dog["name"]; //"Szama" 
+
+dog["speed"]; //1000 
+
+dog["showText"](); //"Lubię walczyć ze złem" 
+
+ 
+
+Nazwy kluczy dla obiektów w większości przypadków przypominają nazwy zwykłych zmiennych. Jeżeli tak jest, możemy odwoływać się do nich notacją z kropką. Nie zawsze jednak będzie to możliwe. 
+
+Klucze obiektów przyjmują postać dowolnego tekstu lub symbolu Oznacza to, że mogą zdarzyć się sytuacje, gdzie klucz będzie miał wartość, do której nie będziemy się mogli dostać za pomocą notacji z kropką: 
+
+const calendar = { 
+
+    "2021-11-11" : "Narodowe Święto Niepodległości" 
+
+} 
+
+ 
+
+calendar.2021-11-11 //oczywisty błąd bo odejmujemy od 2021 resztę liczb 
+
+ 
+
+Sposób trzeci: 
+
+ 
+
+za pomocą tak zwanego przypisania destrukturyzacji 
+
+/klasycznie 
+
+tab = ["Ala", "Ola", "Ela"]; 
+
+ 
+
+//klasycznie 
+
+name1 = tab[0]; 
+
+name2 = tab[1]; 
+
+ 
+
+//za pomocą destrukturyzacji 
+
+const [name1, name2] = tab; 
+
+const ob = { 
+
+    name : "Rudzik", 
+
+    pet : "kot" 
+
+} 
+
+ 
+
+//klasycznie 
+
+const name = ob.name; 
+
+const pet = ob["pet"]; 
+
+ 
+
+//za pomocą destrukturyzacji 
+
+const {name, pet} = ob; 
+
+ 
+
+Dodawanie nowych właściwości: 
+
+Do stworzonego wcześniej obiektu możemy dodawać metody i właściwości nie tylko w jego ciele podczas tworzenia (jak powyżej), ale także poza nim: 
+
+dog = { 
+
+    name: "Szama", 
+
+    speed: 1000, 
+
+    showText() { 
+
+        return "Lubię walczyć ze złem"; 
+
+    } 
+
+} 
+
+ 
+
+dog.type = "pies"; 
+
+dog.legs = 4; 
+
+dog.eat = function() { 
+
+    return "Jem dobre rzeczy"; 
+
+} 
+
+ 
+
+dog.eat(); 
+
+dog.showText(); 
